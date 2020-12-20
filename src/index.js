@@ -17,7 +17,8 @@ class Board extends React.Component {
             <Square 
                 value={this.props.squares[i]}
                 onClick={() => this.props.onClick(i)}
-            />);
+            />
+        );
     }
 
     render() {
@@ -51,8 +52,8 @@ class Game extends React.Component {
                 squares: Array(9).fill(null)
             }],
             stepNumber: 0,
-            xIsNext: true,
-        }
+            xIsNext: true
+        };
     }
 
     handleClick(i) {
@@ -73,9 +74,9 @@ class Game extends React.Component {
     }
 
     jumpTo(step) {
-        this.setSate({
+        this.setState({
             stepNumber: step,
-            xIsNext: (step % 2) === 0,
+            xIsNext: (step % 2) === 0
         });
     }
 
@@ -96,10 +97,10 @@ class Game extends React.Component {
         })
 
         let status;
-        if(winner) {
-            status = 'Winner: ' + winner;
+        if (winner) {
+            status = "Winner: " + winner;
         } else {
-            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+            status = "Next player: " + (this.state.xIsNext ? 'X' : 'O');
         }
 
         return (
